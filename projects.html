@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Level Designer</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0B0D10',
+                        accent: '#1F6BFF',
+                        'accent-hover': '#1652C9',
+                        'light-bg': '#F6F8FC',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-nav {
+            background: rgba(11, 13, 16, 0.7);
+            backdrop-filter: blur(8px);
+        }
+
+        .dark .glass-nav {
+            background: rgba(11, 13, 16, 0.9);
+        }
+
+        .light .glass-nav {
+            background: rgba(246, 248, 252, 0.9);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0B0D10;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1F6BFF;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #1652C9;
+        }
+
+        /* Selection Color */
+        ::selection {
+            background: #1F6BFF;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <!-- Global Video Background -->
+    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+        <video autoplay loop muted playsinline class="absolute w-full h-full object-cover">
+            <source src="media/3163534-uhd_3840_2160_30fps.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-white/10 dark:bg-black/40"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 glass-nav border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="font-heading font-bold text-2xl tracking-tighter text-accent">
+                        DEV<span class="text-gray-900 dark:text-white">FOLIO</span>
+                    </a>
+                </div>
+
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html"
+                            class="text-gray-600 dark:text-gray-300 hover:text-accent dark:hover:text-accent font-medium px-3 py-2 rounded-md text-sm transition-colors">HOME</a>
+                        <a href="projects.html"
+                            class="text-accent font-medium px-3 py-2 rounded-md text-sm transition-colors">PORTFOLIO</a>
+                        <a href="blog.html"
+                            class="text-gray-600 dark:text-gray-300 hover:text-accent dark:hover:text-accent font-medium px-3 py-2 rounded-md text-sm transition-colors">BLOG</a>
+                        <a href="contact.html"
+                            class="text-gray-600 dark:text-gray-300 hover:text-accent dark:hover:text-accent font-medium px-3 py-2 rounded-md text-sm transition-colors">CONTACT</a>
+
+                        <button id="theme-toggle"
+                            class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors focus:outline-none">
+                            <svg class="w-5 h-5 block dark:hidden text-yellow-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                                </path>
+                            </svg>
+                            <svg class="w-5 h-5 hidden dark:block text-gray-300" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M20.354 24.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden  border-b border-gray-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html"
+                    class="text-gray-600 dark:text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">HOME</a>
+                <a href="projects.html"
+                    class="bg-accent text-white block px-3 py-2 rounded-md text-base font-medium">PORTFOLIO</a>
+                <a href="blog.html"
+                    class="text-gray-600 dark:text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">BLOG</a>
+                <a href="contact.html"
+                    class="text-gray-600 dark:text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="pt-32 pb-12 px-4 ">
+        <div class="max-w-7xl mx-auto text-center" data-aos="fade-down">
+            <h1 class="font-heading text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">Portfolio</h1>
+            <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
+                Selected works showcasing level design, environment art, and gameplay prototyping.
+            </p>
+        </div>
+    </section>
+
+    <!-- Filter Buttons -->
+    <section class="py-8 px-4 sticky top-20 z-40 bg-light-bg/95 dark:bg-primary/95 backdrop-blur-sm" data-aos="fade-in">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-center gap-4">
+            <button onclick="filterProjects('all')"
+                class="px-6 py-2 rounded-full border border-gray-300 dark:border-gray-700 text-sm font-medium hover:bg-accent hover:text-white hover:border-transparent dark:text-gray-300 transition-all duration-300 focus:ring-2 focus:ring-offset-2 focus:ring-accent focus:bg-accent focus:text-white">All
+                Projects</button>
+            <button onclick="filterProjects('level-design')"
+                class="px-6 py-2 rounded-full border border-gray-300 dark:border-gray-700 text-sm font-medium hover:bg-accent hover:text-white hover:border-transparent dark:text-gray-300 transition-all duration-300 focus:ring-2 focus:ring-offset-2 focus:ring-accent focus:bg-accent focus:text-white">Level
+                Design</button>
+            <button onclick="filterProjects('environment-art')"
+                class="px-6 py-2 rounded-full border border-gray-300 dark:border-gray-700 text-sm font-medium hover:bg-accent hover:text-white hover:border-transparent dark:text-gray-300 transition-all duration-300 focus:ring-2 focus:ring-offset-2 focus:ring-accent focus:bg-accent focus:text-white">Environment
+                Art</button>
+            <button onclick="filterProjects('prototype')"
+                class="px-6 py-2 rounded-full border border-gray-300 dark:border-gray-700 text-sm font-medium hover:bg-accent hover:text-white hover:border-transparent dark:text-gray-300 transition-all duration-300 focus:ring-2 focus:ring-offset-2 focus:ring-accent focus:bg-accent focus:text-white">Prototypes</button>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="py-12 px-4 pb-24">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+
+            <!-- Project 1 -->
+            <div class="project-card group relative bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 hover:-translate-y-1"
+                data-aos="fade-up" data-categories="level-design">
+                <div class="relative overflow-hidden aspect-w-16 aspect-h-9">
+                    <img src="https://via.placeholder.com/800x600/1F1F1F/FFFFFF?text=Project+Titan"
+                        alt="Project Thumbnail"
+                        class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-500">
+                    <div
+                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <a href="project-details.html"
+                            class="px-6 py-3 bg-accent text-white rounded-lg font-semibold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">View
+                            Project</a>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white">Project Titan</h3>
+                        <span
+                            class="text-xs font-bold text-accent bg-blue-100 dark:bg-blue-900/30 px-2 py-1 rounded">UE5</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-2 mb-4">A tactical shooter map
+                        designed for competitive play with detailed sightlines.</p>
+                    <div class="flex items-center text-sm text-gray-500 dark:text-gray-500">
+                        <span class="mr-4">Level Design</span>
+                        <span>Multiplayer</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card group relative bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 hover:-translate-y-1"
+                data-aos="fade-up" data-aos-delay="100" data-categories="environment-art">
+                <div class="relative overflow-hidden aspect-w-16 aspect-h-9">
+                    <img src="https://via.placeholder.com/800x600/1F1F1F/FFFFFF?text=Neon+City" alt="Project Thumbnail"
+                        class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-500">
+                    <div
+                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <a href="project-details.html"
+                            class="px-6 py-3 bg-accent text-white rounded-lg font-semibold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">View
+                            Project</a>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white">Neon City</h3>
+                        <span
+                            class="text-xs font-bold text-accent bg-blue-100 dark:bg-blue-900/30 px-2 py-1 rounded">Unity</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-2 mb-4">Cyberpunk urban environment
+                        created using modular kits and custom shaders.</p>
+                    <div class="flex items-center text-sm text-gray-500 dark:text-gray-500">
+                        <span class="mr-4">Environment Art</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card group relative bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 hover:-translate-y-1"
+                data-aos="fade-up" data-aos-delay="200" data-categories="prototype">
+                <div class="relative overflow-hidden aspect-w-16 aspect-h-9">
+                    <img src="https://via.placeholder.com/800x600/1F1F1F/FFFFFF?text=Forest+Temple"
+                        alt="Project Thumbnail"
+                        class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-500">
+                    <div
+                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <a href="project-details.html"
+                            class="px-6 py-3 bg-accent text-white rounded-lg font-semibold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">View
+                            Project</a>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white">Forest Temple</h3>
+                        <span
+                            class="text-xs font-bold text-accent bg-blue-100 dark:bg-blue-900/30 px-2 py-1 rounded">UE4</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-2 mb-4">Vertical slice of an adventure
+                        game focusing on puzzle mechanics.</p>
+                    <div class="flex items-center text-sm text-gray-500 dark:text-gray-500">
+                        <span class="mr-4">Prototyping</span>
+                        <span>Blueprints</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 (More filler) -->
+            <div class="project-card group relative bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 hover:-translate-y-1"
+                data-aos="fade-up" data-aos-delay="300" data-categories="level-design,environment-art">
+                <div class="relative overflow-hidden aspect-w-16 aspect-h-9">
+                    <img src="https://via.placeholder.com/800x600/1F1F1F/FFFFFF?text=Space+Station"
+                        alt="Project Thumbnail"
+                        class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-500">
+                    <div
+                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <a href="project-details.html"
+                            class="px-6 py-3 bg-accent text-white rounded-lg font-semibold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">View
+                            Project</a>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white">Orbit Station</h3>
+                        <span
+                            class="text-xs font-bold text-accent bg-blue-100 dark:bg-blue-900/30 px-2 py-1 rounded">UE5</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-2 mb-4">Zero-G combat map with
+                        rotating sections.</p>
+                    <div class="flex items-center text-sm text-gray-500 dark:text-gray-500">
+                        <span class="mr-4">Level Design</span>
+                        <span>Lighting</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-light-bg dark:bg-[#08090B] py-12 border-t border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <span class="font-heading font-bold text-xl text-gray-900 dark:text-white">DEV<span
+                        class="text-accent">FOLIO</span></span>
+                <p class="text-sm text-gray-500 mt-2">© 2024 Level Designer. All rights reserved.</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-500 hover:text-accent transition-colors">Twitter/X</a>
+                <a href="#" class="text-gray-500 hover:text-accent transition-colors">LinkedIn</a>
+                <a href="#" class="text-gray-500 hover:text-accent transition-colors">ArtStation</a>
+                <a href="#" class="text-gray-500 hover:text-accent transition-colors">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

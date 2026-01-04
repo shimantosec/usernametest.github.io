@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Titan - Project Details</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0B0D10',
+                        accent: '#1F6BFF',
+                        'accent-hover': '#1652C9',
+                        'light-bg': '#F6F8FC',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-nav {
+            background: rgba(11, 13, 16, 0.7);
+            backdrop-filter: blur(8px);
+        }
+
+        .dark .glass-nav {
+            background: rgba(11, 13, 16, 0.9);
+        }
+
+        .light .glass-nav {
+            background: rgba(246, 248, 252, 0.9);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0B0D10;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1F6BFF;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #1652C9;
+        }
+
+        /* Selection Color */
+        ::selection {
+            background: #1F6BFF;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <!-- Global Video Background -->
+    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+        <video autoplay loop muted playsinline class="absolute w-full h-full object-cover">
+            <source src="media/3163534-uhd_3840_2160_30fps.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-white/10 dark:bg-black/40"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 glass-nav border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="font-heading font-bold text-2xl tracking-tighter text-accent">
+                        DEV<span class="text-gray-900 dark:text-white">FOLIO</span>
+                    </a>
+                </div>
+
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html"
+                            class="text-gray-600 dark:text-gray-300 hover:text-accent dark:hover:text-accent font-medium px-3 py-2 rounded-md text-sm transition-colors">HOME</a>
+                        <a href="projects.html"
+                            class="text-accent font-medium px-3 py-2 rounded-md text-sm transition-colors">PORTFOLIO</a>
+                        <a href="blog.html"
+                            class="text-gray-600 dark:text-gray-300 hover:text-accent dark:hover:text-accent font-medium px-3 py-2 rounded-md text-sm transition-colors">BLOG</a>
+                        <a href="contact.html"
+                            class="text-gray-600 dark:text-gray-300 hover:text-accent dark:hover:text-accent font-medium px-3 py-2 rounded-md text-sm transition-colors">CONTACT</a>
+
+                        <button id="theme-toggle"
+                            class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors focus:outline-none">
+                            <svg class="w-5 h-5 block dark:hidden text-yellow-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                                </path>
+                            </svg>
+                            <svg class="w-5 h-5 hidden dark:block text-gray-300" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M20.354 24.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden  border-b border-gray-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html"
+                    class="text-gray-600 dark:text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">HOME</a>
+                <a href="projects.html"
+                    class="bg-accent text-white block px-3 py-2 rounded-md text-base font-medium">PORTFOLIO</a>
+                <a href="blog.html"
+                    class="text-gray-600 dark:text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">BLOG</a>
+                <a href="contact.html"
+                    class="text-gray-600 dark:text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Header -->
+    <header
+        class="relative pt-32 pb-16 px-4 bg-light-bg dark:bg-gradient-to-b dark:from-gray-900 dark:to-primary border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+                <div>
+                    <span class="text-accent font-semibold tracking-wide uppercase text-sm">Level Design</span>
+                    <h1 class="font-heading text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mt-2 mb-4">
+                        Project Titan</h1>
+                    <div class="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-400">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                            </svg>
+                            Role: Lead Level Designer
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                            Platform: PC / Console
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                            Engine: Unreal Engine 5
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <a href="#"
+                        class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#fa5c5c] hover:bg-[#d44545] transition-colors shadow-lg shadow-red-500/20">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M4.6 2.6C3.4 3 2.5 4.1 2.5 5.4v13.2c0 1.2.9 2.3 2.1 2.6l9.6-6.6-9.6-12zm13.1 2.3L9.3 12l8.4 7.1c.9-.2 1.8-.9 1.8-2V6.9c0-1.2-.8-1.8-1.8-2zM10.7 12l-6.8 4.7V7.3L10.7 12z" />
+                        </svg>
+                        Play Demo on Itch.io
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- Video Embed -->
+        <div class="aspect-w-16 aspect-h-9 mb-16 rounded-xl overflow-hidden shadow-2xl border border-gray-800">
+            <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <!-- Sidebar / Details -->
+            <div class="lg:col-span-1 space-y-8">
+                <div class="bg-white dark:bg-gray-900 p-6 rounded-lg border border-gray-200 dark:border-gray-800">
+                    <h3 class="font-heading text-lg font-bold text-gray-900 dark:text-white mb-4">Project Info</h3>
+                    <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-400">
+                        <li class="flex justify-between"><span
+                                class="font-medium text-gray-900 dark:text-gray-300">Duration:</span> 4 Months</li>
+                        <li class="flex justify-between"><span class="font-medium text-gray-900 dark:text-gray-300">Team
+                                Size:</span> 5 Members</li>
+                        <li class="flex justify-between"><span class="font-medium text-gray-900 dark:text-gray-300">My
+                                Role:</span> Level Design / Lighting</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white dark:bg-gray-900 p-6 rounded-lg border border-gray-200 dark:border-gray-800">
+                    <h3 class="font-heading text-lg font-bold text-gray-900 dark:text-white mb-4">Tools Used</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-xs rounded-full">Unreal Engine 5</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-xs rounded-full">Maya</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-xs rounded-full">Photoshop</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-xs rounded-full">Perforce</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Breakdown -->
+            <div class="lg:col-span-2 space-y-12" data-aos="fade-left">
+                <section>
+                    <h2 class="font-heading text-2xl font-bold text-gray-900 dark:text-white mb-4">Responsibilities</h2>
+                    <ul class="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        <li>Designed and blocked out the initial layout for the "Central Plaza" map section.</li>
+                        <li>Implemented gameplay scripting for dynamic events using Blueprints.</li>
+                        <li>Collaborated with Environment Artists to ensure metrics were maintained during art pass.
+                        </li>
+                        <li>Optimized level streaming and culling for performance targets on console.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="font-heading text-2xl font-bold text-gray-900 dark:text-white mb-4">Design Process</h2>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                        The goal was to create a highly vertical map that encouraged sniper play while providing ample
+                        cover for flankers. I started with a 2D top-down sketch to establish the flow and major choke
+                        points.
+                    </p>
+                    <img src="https://via.placeholder.com/800x400/1F1F1F/FFFFFF?text=Blockout+Process"
+                        alt="Blockout Process" class="w-full rounded-lg shadow-lg mb-4">
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        After the initial blockout, we playtested weekly. Feedback indicated that the central sightline
+                        was too dominant, so I added underground tunnels to provide a safer route for close-quarters
+                        combat characters.
+                    </p>
+                </section>
+
+                <section>
+                    <h2 class="font-heading text-2xl font-bold text-gray-900 dark:text-white mb-4">Challenges &
+                        Solutions</h2>
+                    <div class="bg-gray-50 dark:bg-gray-900/50 p-6 rounded-lg border-l-4 border-accent">
+                        <h4 class="font-bold text-gray-900 dark:text-white mb-2">Challenge: Navigation Clarity</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Players were getting lost in the
+                            multi-level vertical sections.</p>
+                        <h4 class="font-bold text-gray-900 dark:text-white mb-2">Solution:</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">I implemented a consistent lighting
+                            language—cool blue lights for lower paths and warm orange lights for upper paths—to
+                            subconsciously guide player orientation.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Navigation Footer -->
+        <div class="mt-20 flex justify-between border-t border-gray-200 dark:border-gray-800 pt-8">
+            <a href="#" class="text-gray-500 hover:text-accent font-medium flex items-center">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Previous Project
+            </a>
+            <a href="projects.html" class="text-gray-500 hover:text-accent font-medium">Back to Portfolio</a>
+            <a href="#" class="text-gray-500 hover:text-accent font-medium flex items-center">
+                Next Project
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-light-bg dark:bg-[#08090B] py-12 border-t border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <span class="font-heading font-bold text-xl text-gray-900 dark:text-white">DEV<span
+                        class="text-accent">FOLIO</span></span>
+                <p class="text-sm text-gray-500 mt-2">© 2024 Level Designer. All rights reserved.</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-500 hover:text-accent transition-colors">Twitter/X</a>
+                <a href="#" class="text-gray-500 hover:text-accent transition-colors">LinkedIn</a>
+                <a href="#" class="text-gray-500 hover:text-accent transition-colors">ArtStation</a>
+                <a href="#" class="text-gray-500 hover:text-accent transition-colors">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

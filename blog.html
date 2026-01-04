@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Level Designer Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0B0D10',
+                        accent: '#1F6BFF',
+                        'accent-hover': '#1652C9',
+                        'light-bg': '#F6F8FC',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-nav {
+            background: rgba(11, 13, 16, 0.7);
+            backdrop-filter: blur(8px);
+        }
+
+        .dark .glass-nav {
+            background: rgba(11, 13, 16, 0.9);
+        }
+
+        .light .glass-nav {
+            background: rgba(246, 248, 252, 0.9);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0B0D10;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1F6BFF;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #1652C9;
+        }
+
+        /* Selection Color */
+        ::selection {
+            background: #1F6BFF;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <!-- Global Video Background -->
+    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+        <video autoplay loop muted playsinline class="absolute w-full h-full object-cover">
+            <source src="media/3163534-uhd_3840_2160_30fps.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-white/10 dark:bg-black/40"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 glass-nav border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="font-heading font-bold text-2xl tracking-tighter text-accent">
+                        DEV<span class="text-gray-900 dark:text-white">FOLIO</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html"
+                            class="text-gray-600 dark:text-gray-300 hover:text-accent dark:hover:text-accent font-medium px-3 py-2 rounded-md text-sm transition-colors">HOME</a>
+                        <a href="projects.html"
+                            class="text-gray-600 dark:text-gray-300 hover:text-accent dark:hover:text-accent font-medium px-3 py-2 rounded-md text-sm transition-colors">PORTFOLIO</a>
+                        <a href="blog.html"
+                            class="text-accent font-medium px-3 py-2 rounded-md text-sm transition-colors">BLOG</a>
+                        <a href="contact.html"
+                            class="text-gray-600 dark:text-gray-300 hover:text-accent dark:hover:text-accent font-medium px-3 py-2 rounded-md text-sm transition-colors">CONTACT</a>
+
+                        <!-- Theme Toggle Button -->
+                        <button id="theme-toggle"
+                            class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors focus:outline-none">
+                            <svg class="w-5 h-5 block dark:hidden text-yellow-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                                </path>
+                            </svg>
+                            <svg class="w-5 h-5 hidden dark:block text-gray-300" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M20.354 24.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden  border-b border-gray-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html"
+                    class="text-gray-600 dark:text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">HOME</a>
+                <a href="projects.html"
+                    class="text-gray-600 dark:text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">PORTFOLIO</a>
+                <a href="blog.html"
+                    class="bg-accent text-white block px-3 py-2 rounded-md text-base font-medium">BLOG</a>
+                <a href="contact.html"
+                    class="text-gray-600 dark:text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="pt-32 pb-12 md:pt-48 md:pb-24 px-4 ">
+        <div class="max-w-7xl mx-auto text-center" data-aos="fade-up">
+            <h1 class="font-heading text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">Design Thoughts
+            </h1>
+            <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                Musings on level design, pacing, and player psychology.
+            </p>
+        </div>
+    </header>
+
+    <!-- Blog Grid -->
+    <section class="pb-24 ">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                <!-- Blog Post 1 -->
+                <article
+                    class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-800"
+                    data-aos="fade-up" data-aos-delay="0">
+                    <img src="https://via.placeholder.com/600x400/1F1F1F/FFFFFF?text=Pacing+in+Games" alt="Blog Thumb"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-accent text-xs font-bold tracking-wider uppercase">Level Design</span>
+                        <h2 class="font-heading text-xl font-bold text-gray-900 dark:text-white mt-2 mb-3">
+                            <a href="#" class="hover:text-accent transition-colors">The Art of Pacing</a>
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                            How to balance tension and release in combat encounters to keep players engaged without
+                            exhaustion.
+                        </p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-xs text-gray-500">Jan 02, 2026</span>
+                            <a href="#" class="text-accent text-sm font-semibold hover:underline">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article
+                    class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-800"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://via.placeholder.com/600x400/1F1F1F/FFFFFF?text=Visual+Guide" alt="Blog Thumb"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-accent text-xs font-bold tracking-wider uppercase">Environment Art</span>
+                        <h2 class="font-heading text-xl font-bold text-gray-900 dark:text-white mt-2 mb-3">
+                            <a href="#" class="hover:text-accent transition-colors">Leading the Eye</a>
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                            Using lighting and geometry to intuitively guide players through complex spaces and open
+                            worlds.
+                        </p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-xs text-gray-500">Dec 15, 2025</span>
+                            <a href="#" class="text-accent text-sm font-semibold hover:underline">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article
+                    class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-800"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://via.placeholder.com/600x400/1F1F1F/FFFFFF?text=UE5+Blueprints" alt="Blog Thumb"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-accent text-xs font-bold tracking-wider uppercase">Tutorial</span>
+                        <h2 class="font-heading text-xl font-bold text-gray-900 dark:text-white mt-2 mb-3">
+                            <a href="#" class="hover:text-accent transition-colors">Quick Prototyping in UE5</a>
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                            Essential blueprint nodes every level designer needs to know for creating rapid blockouts.
+                        </p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-xs text-gray-500">Nov 20, 2025</span>
+                            <a href="#" class="text-accent text-sm font-semibold hover:underline">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-light-bg dark:bg-[#08090B] py-12 border-t border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <span class="font-heading font-bold text-xl text-gray-900 dark:text-white">DEV<span
+                        class="text-accent">FOLIO</span></span>
+                <p class="text-sm text-gray-500 mt-2">© 2024 Level Designer. All rights reserved.</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-500 hover:text-accent transition-colors">Twitter/X</a>
+                <a href="#" class="text-gray-500 hover:text-accent transition-colors">LinkedIn</a>
+                <a href="#" class="text-gray-500 hover:text-accent transition-colors">ArtStation</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
